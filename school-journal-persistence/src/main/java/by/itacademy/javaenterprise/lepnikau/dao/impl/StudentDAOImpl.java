@@ -4,15 +4,18 @@ import by.itacademy.javaenterprise.lepnikau.dao.StudentDAO;
 import by.itacademy.javaenterprise.lepnikau.entity.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
+@Repository
 public class StudentDAOImpl implements StudentDAO {
 
     private static final Logger LOG = LoggerFactory.getLogger(StudentDAOImpl.class);
 
-
-    private EntityManager entityManager;
+    @PersistenceContext
+    private final EntityManager entityManager;
 
     public StudentDAOImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
