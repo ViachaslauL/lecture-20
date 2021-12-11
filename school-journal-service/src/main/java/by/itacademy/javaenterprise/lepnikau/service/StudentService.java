@@ -15,8 +15,14 @@ public class StudentService {
         this.studentDAO = studentDAO;
     }
 
-    public Student findStudent(Long id) {
-        return studentDAO.get(id);
+    public Student findStudent(String id) {
+        Long longId = Long.valueOf(id);
+        return studentDAO.get(longId);
+    }
+
+    public boolean saveStudent(Student student) {
+        Student savedStudent = studentDAO.save(student);
+        return savedStudent != null;
     }
 
 }

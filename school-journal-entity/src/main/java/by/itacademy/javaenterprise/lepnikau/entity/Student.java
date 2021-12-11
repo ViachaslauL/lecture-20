@@ -24,7 +24,6 @@ public class Student {
     @Column(name = "first_name")
     private String firstName;
 
-    @Transient
     @Column(name = "patronymic")
     private String patronymic;
 

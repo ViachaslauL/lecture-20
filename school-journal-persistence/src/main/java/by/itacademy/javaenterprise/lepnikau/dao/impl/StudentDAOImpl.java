@@ -14,10 +14,10 @@ public class StudentDAOImpl implements StudentDAO {
 
     private static final Logger LOG = LoggerFactory.getLogger(StudentDAOImpl.class);
 
-    @PersistenceContext
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
-    public StudentDAOImpl(EntityManager entityManager) {
+    @PersistenceContext
+    public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

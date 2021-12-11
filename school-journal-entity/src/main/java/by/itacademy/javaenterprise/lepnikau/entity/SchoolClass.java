@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "classes")
@@ -22,7 +21,7 @@ public class SchoolClass {
     private Integer number;
 
     @Column(name = "character")
-    private Character character;
+    private String character;
 
     @Formula(value = "concat(number, character)")
     private String classCode;

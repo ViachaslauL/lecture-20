@@ -6,14 +6,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 public class MarkDAOImpl implements MarkDAO {
 
     private static final Logger LOG = LoggerFactory.getLogger(MarkDAOImpl.class);
 
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
-    public MarkDAOImpl(EntityManager entityManager) {
+    @PersistenceContext
+    public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

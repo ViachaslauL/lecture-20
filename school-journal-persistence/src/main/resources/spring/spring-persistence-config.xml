@@ -10,17 +10,14 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="by.itacademy.javaenterprise.lepnikau.dao"/>
-    <context:property-placeholder location="classpath:*.properties" />
+    <context:property-placeholder location="classpath*:db.properties" />
 
-    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="${db.driver.class}" />
-        <property name="jdbcUrl" value="${db.url}" />
+        <property name="url" value="${db.url}" />
         <property name="username" value="${db.user}" />
         <property name="password" value="${db.password}" />
-        <property name="maximumPoolSize" value="${db.pool.size.max}" />
-    </bean>
-    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-        <constructor-arg ref="hikariConfig" />
+        <property name="maxTotal" value="${db.pool.size.max}" />
     </bean>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

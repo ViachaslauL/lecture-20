@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 public class ParentDAOImpl implements ParentDAO {
 
@@ -13,7 +14,8 @@ public class ParentDAOImpl implements ParentDAO {
 
     private EntityManager entityManager;
 
-    public ParentDAOImpl(EntityManager entityManager) {
+    @PersistenceContext
+    public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
