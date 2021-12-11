@@ -9,12 +9,13 @@
 <li> add web module
 <li> add spring dispatcher servlet
 <li> add spring context
-<li> deploy to servlet container per studen
+<li> deploy to servlet container per student
 </ol>
 <h4>Technologies</h4>
 <ol>
 <li>Java version: 11
 <li>MySQL database
+<li>commons-dbcp2 pool
 <li>docker-compose
 <li>Flyway
 <li>Hibernate
